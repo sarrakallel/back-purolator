@@ -40,3 +40,4 @@ class CreateCPCBinView(APIView):
         cpc_bin.save()
 
         return Response({'message': 'CPC Bin created successfully'})
+
