@@ -4,4 +4,7 @@ django-crispy-forms
 django-ckeditor
 drf-yasg==1.20.0
 django-cors-headers
+numpy
+depthai
+opencv-python
 

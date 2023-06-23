@@ -47,3 +47,5 @@ class PalletLoading(models.Model):
 
     def __str__(self):
         return f"PalletLoadingID: {self.PalletLoadingID}, Pallet_ID: {self.Pallet_ID}"
+    
+    

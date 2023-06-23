@@ -5,10 +5,13 @@ from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
+from Application.views import MeasurementView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('employee-login/', EmployeeLoginView.as_view(), name='employee-login'),
+    path('api/measurement/', MeasurementView.as_view(), name='measurement-api'),
+
 ]
 
 schema_view = get_swagger_view(title='API Documentation')

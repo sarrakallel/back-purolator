@@ -9,6 +9,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Employee
+from .camera import MeasurementCamera
+from .camera import MeasurementSerializer
 
 class EmployeeLoginView(APIView):
     def post(self, request):
@@ -41,3 +43,19 @@ class CreateCPCBinView(APIView):
 
         return Response({'message': 'CPC Bin created successfully'})
 
+
+class MeasurementView(APIView):
+    def get(self, request):
+        # Initialize the MeasurementCamera object
+        camera = MeasurementCamera()
+
+        # Perform the measurement and get the results
+        results = camera.measure_pallet()
+
+        # Serialize the results
+        serializer = MeasurementSerializer({
+            'width': results[0],
+            'height': results[1],
+        })
+
+        return Response(serializer.data)
